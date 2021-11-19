@@ -6,11 +6,14 @@
 package lab6p2_mariocalix_22041098;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -52,22 +55,23 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        tf_nombrep = new javax.swing.JTextField();
+        tf_danop = new javax.swing.JTextField();
+        tf_vidap = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rb_baja = new javax.swing.JRadioButton();
+        rb_media = new javax.swing.JRadioButton();
+        rb_alta = new javax.swing.JRadioButton();
         jLabel18 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        rb_electrico = new javax.swing.JRadioButton();
+        rb_psiquico = new javax.swing.JRadioButton();
+        rb_venenoso = new javax.swing.JRadioButton();
+        rb_fantasma = new javax.swing.JRadioButton();
         jButton8 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_pokedex = new javax.swing.JTree();
         jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jd_registrarse = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -164,7 +168,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +192,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("PokeGrupo", jPanel1);
@@ -201,37 +205,52 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
 
         jLabel17.setText("Velocidad");
 
-        bg_velocidad.add(jRadioButton1);
-        jRadioButton1.setText("Baja");
+        bg_velocidad.add(rb_baja);
+        rb_baja.setText("Baja");
 
-        bg_velocidad.add(jRadioButton2);
-        jRadioButton2.setText("Media");
+        bg_velocidad.add(rb_media);
+        rb_media.setText("Media");
 
-        bg_velocidad.add(jRadioButton3);
-        jRadioButton3.setText("Alta");
+        bg_velocidad.add(rb_alta);
+        rb_alta.setText("Alta");
 
         jLabel18.setText("Tipo");
 
-        bg_tipoPok.add(jRadioButton4);
-        jRadioButton4.setText("Electrico");
+        bg_tipoPok.add(rb_electrico);
+        rb_electrico.setText("Electrico");
 
-        bg_tipoPok.add(jRadioButton5);
-        jRadioButton5.setText("Psiquico");
+        bg_tipoPok.add(rb_psiquico);
+        rb_psiquico.setText("Psiquico");
 
-        bg_tipoPok.add(jRadioButton6);
-        jRadioButton6.setText("Venenoso");
+        bg_tipoPok.add(rb_venenoso);
+        rb_venenoso.setText("Venenoso");
 
-        bg_velocidad.add(jRadioButton7);
-        jRadioButton7.setText("Fantasma");
+        bg_velocidad.add(rb_fantasma);
+        rb_fantasma.setText("Fantasma");
 
         jButton8.setText("Editar");
 
-        jScrollPane2.setViewportView(jTree1);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex1");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex2");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex3");
+        treeNode1.add(treeNode2);
+        jt_pokedex.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(jt_pokedex);
 
         jButton4.setText("<");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Agregar pokemon");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
             }
         });
 
@@ -249,37 +268,41 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel14)
                                 .addComponent(jLabel17))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jRadioButton1)
+                            .addComponent(rb_baja)
                             .addGap(55, 55, 55)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton3)
+                            .addComponent(rb_media)
+                            .addComponent(rb_alta)
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf_danop, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tf_vidap, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
+                            .addComponent(rb_electrico)
                             .addComponent(jLabel18)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton6)
-                            .addComponent(jRadioButton7))))
+                            .addComponent(rb_psiquico)
+                            .addComponent(rb_venenoso)
+                            .addComponent(rb_fantasma))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,33 +320,35 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                                 .addComponent(jLabel16))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_danop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_vidap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel17)
                                 .addComponent(jLabel18))
                             .addGap(4, 4, 4)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButton1)
-                                .addComponent(jRadioButton4))
+                                .addComponent(rb_baja)
+                                .addComponent(rb_electrico))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButton2)
-                                .addComponent(jRadioButton5))
+                                .addComponent(rb_media)
+                                .addComponent(rb_psiquico))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButton3)
-                                .addComponent(jRadioButton6))
+                                .addComponent(rb_alta)
+                                .addComponent(rb_venenoso))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioButton7)
+                                .addComponent(rb_fantasma)
                                 .addComponent(jButton8))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jButton4)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Pokemones", jPanel2);
@@ -511,7 +536,8 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         
-        if (tf_usuario.getText().equals(u)  &&  tf_contrasena.getText().equals(p)  ) {
+        if (tf_usuario.getText().equals(u)  &&  tf_contrasena.getText().equals(p) || 
+                tf_usuario.getText().equals(l)  &&  tf_contrasena.getText().equals(u)) {
             tf_usuario.setText("");
             tf_contrasena.setText("");
             openJDL();
@@ -624,6 +650,37 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton6MouseClicked
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        DefaultTreeModel m = (DefaultTreeModel) jt_pokedex.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_persona;
+        nodo_persona
+                = new DefaultMutableTreeNode(
+                        new Pokedex()
+                );
+        
+        DefaultMutableTreeNode nombre;
+        nombre = new DefaultMutableTreeNode(
+               (String) tf_nombrep.getText()
+        );        
+        DefaultMutableTreeNode dano;
+        dano = new DefaultMutableTreeNode(
+               (String) tf_danop.getText()
+        );
+        DefaultMutableTreeNode vida;
+        vida = new DefaultMutableTreeNode(
+               (String) tf_vidap.getText()
+        );
+        nombre.add(nombre);
+        //anio.add(edad);
+        nodo_persona.add(dano);
+        raiz.add(nodo_persona);
+        m.reload();
+        tf_nombrep.setText("");
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -679,6 +736,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_pokegrupos;
     private com.toedter.calendar.JDateChooser dc_fecha;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -705,35 +763,35 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTree jTree1;
     private javax.swing.JButton jb_colorFav;
     private javax.swing.JButton jb_registrarse;
     private javax.swing.JDialog jd_ingresar;
     private javax.swing.JDialog jd_registrarse;
+    private javax.swing.JTree jt_pokedex;
     private javax.swing.JPasswordField pf_contrasena;
+    private javax.swing.JRadioButton rb_alta;
+    private javax.swing.JRadioButton rb_baja;
+    private javax.swing.JRadioButton rb_electrico;
+    private javax.swing.JRadioButton rb_fantasma;
+    private javax.swing.JRadioButton rb_media;
+    private javax.swing.JRadioButton rb_psiquico;
+    private javax.swing.JRadioButton rb_venenoso;
     private javax.swing.JTable tabla1;
     private javax.swing.JTextField tf_apellido;
     private javax.swing.JPasswordField tf_contrasena;
+    private javax.swing.JTextField tf_danop;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombrePokeG;
+    private javax.swing.JTextField tf_nombrep;
     private javax.swing.JTextField tf_usuario;
     private javax.swing.JTextField tf_usuarioC;
+    private javax.swing.JTextField tf_vidap;
     // End of variables declaration//GEN-END:variables
 
-    String u="mario", p="123";
+    String u="mario", p="123",l="james",o="321";
     ArrayList<Usuario> lista = new ArrayList();
     ArrayList<PokeGrupo> inventario = new ArrayList();
 
