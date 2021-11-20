@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -70,7 +71,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         cb_tipo = new javax.swing.JComboBox<>();
         js_vida = new javax.swing.JSpinner();
-        js_dano = new javax.swing.JSpinner();
+        js_danop = new javax.swing.JSpinner();
         jd_registrarse = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -221,6 +222,11 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         });
 
         jButton9.setText("Agregar a Arbol");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         jl_pokemones.setModel(new DefaultListModel());
         jl_pokemones.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -236,12 +242,6 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jl_pokemones);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex1");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex2");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex3");
-        treeNode1.add(treeNode2);
         jt_pokedex.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jt_pokedex.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -264,22 +264,16 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addComponent(jLabel16))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(js_dano, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(js_danop, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(js_vida, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,15 +281,19 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
-                                .addGap(83, 83, 83)
+                                .addGap(71, 71, 71)
                                 .addComponent(jLabel15))
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel16))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cb_velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,16 +306,16 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15)
                     .addComponent(jLabel16))
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(js_vida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(js_dano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(js_danop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,8 +326,9 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                 .addComponent(jButton8)
                 .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
@@ -339,7 +338,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Pokemones", jPanel2);
@@ -383,6 +382,11 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         });
 
         jb_colorFav.setText("Color Favorito");
+        jb_colorFav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_colorFavMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_registrarseLayout = new javax.swing.GroupLayout(jd_registrarse.getContentPane());
         jd_registrarse.getContentPane().setLayout(jd_registrarseLayout);
@@ -527,7 +531,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (tf_usuario.getText().equals(u)  &&  tf_contrasena.getText().equals(p) || 
-                tf_usuario.getText().equals(l)  &&  tf_contrasena.getText().equals(u)) {
+                tf_usuario.getText().equals(l)  &&  tf_contrasena.getText().equals(u) ) {
             tf_usuario.setText("");
             tf_contrasena.setText("");
             openJDL();
@@ -631,12 +635,49 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                 modelo.addRow(newrow);
                 tabla1.setModel(modelo);               
                 //tf_edad_maxima.setText(maxima_edad());               
-            }
+            }               
+            
     }//GEN-LAST:event_cb_pokegruposItemStateChanged
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
         //UNIRME A POKE GRUPOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        
+        
+        /*
+        String nombre, apellido, usuario, contrasena;
+        Date fechaNacimiento;
+        Color colorFav;
+        ArrayList<Pokedex> pokedexes = new ArrayList(3);
+        try {     
+            nombre = tf_nombre.getText();
+            apellido = tf_apellido.getText();
+            usuario = tf_usuario.getText();
+            contrasena = tf_contrasena.getText();
+            fechaNacimiento = dc_fecha.getDate();
+            colorFav = jb_colorFav.getBackground();
+               
+             
+                Usuario x = new Usuario(nombre, apellido, usuario, contrasena, fechaNacimiento, colorFav);
+                lista.add(x);
+                
+                JOptionPane.showMessageDialog(this,
+                        "Usuario registrado exitosamente");
+                
+                tf_nombre.setText("");
+                tf_apellido.setText("");
+                tf_usuario.setText("");
+                tf_contrasena.setText("");
+                dc_fecha.setDate(new Date());
+                jb_colorFav.setBackground(Color.red);
+            
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,
+                 "Ocurrio un error y no se guardaron los datos");
+        }*/
         
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -647,7 +688,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
 
         modelo.addElement(new Pokemon(tf_nombrep.getText(),
                 (String) cb_velocidad.getSelectedItem(),
-                (String) js_dano.getValue(),
+                (String) js_danop.getValue(),
                 (Integer) js_vida.getValue(),
                 (Integer) cb_tipo.getSelectedItem()
                 
@@ -655,8 +696,8 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         );
         jl_pokemones.setModel(modelo);
         tf_nombrep.setText("");
-        js_dano.setValue(50);
-        js_dano.setValue(100);
+        js_danop.setValue(50);
+        js_danop.setValue(100);
         cb_tipo.setSelectedIndex(1);
         cb_velocidad.setSelectedIndex(1);
     }//GEN-LAST:event_jButton2MouseClicked
@@ -709,6 +750,47 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jt_pokedexMouseClicked
+
+    private void jb_colorFavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_colorFavMouseClicked
+        // TODO add your handling code here:
+        jb_colorFav.setBackground(
+                JColorChooser.showDialog(
+                        this, "Seleccione un color", Color.yellow)
+        );
+    }//GEN-LAST:event_jb_colorFavMouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        DefaultTreeModel m = (DefaultTreeModel) jt_pokedex.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_persona;
+        nodo_persona
+                = new DefaultMutableTreeNode(
+                        new Pokemon(tf_nombrep.getText(),
+                             (String) cb_velocidad.getSelectedItem(),
+                             (String) cb_tipo.getSelectedItem(),
+                             (Integer)js_danop.getValue(),
+                                (Integer) js_vida.getValue()
+                        )
+                );
+        
+        DefaultMutableTreeNode tipo;
+        tipo = new DefaultMutableTreeNode(
+                new DefaultMutableTreeNode(
+                      (String)  cb_tipo.getSelectedItem()
+                )
+        );        
+        DefaultMutableTreeNode nombre;
+        nombre = new DefaultMutableTreeNode(
+               (String) tf_nombrep.getText()
+        );
+        tipo.add(nombre);
+        nodo_persona.add(tipo);
+        raiz.add(nodo_persona);
+        m.reload();
+        tf_nombrep.setText("");
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -804,7 +886,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private javax.swing.JDialog jd_ingresar;
     private javax.swing.JDialog jd_registrarse;
     private javax.swing.JList jl_pokemones;
-    private javax.swing.JSpinner js_dano;
+    private javax.swing.JSpinner js_danop;
     private javax.swing.JSpinner js_vida;
     private javax.swing.JTree jt_pokedex;
     private javax.swing.JPopupMenu menu_popup;

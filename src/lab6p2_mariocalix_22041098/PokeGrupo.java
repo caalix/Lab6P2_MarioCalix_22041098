@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author mario
  */
-public class PokeGrupo {
+public class PokeGrupo{
     private String nombre;
     private ArrayList<Usuario> miembros = new ArrayList();
     private Date fecha_creacion;
