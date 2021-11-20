@@ -888,7 +888,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private void opcion_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion_eliminarActionPerformed
         // TODO add your handling code here:
         int response = JOptionPane.showConfirmDialog(
-                this,
+                jd_ingresar,
                 "Seguro de Eliminar?",
                 "Confirm",
                 JOptionPane.YES_NO_OPTION,
