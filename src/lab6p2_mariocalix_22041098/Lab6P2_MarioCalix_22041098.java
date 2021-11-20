@@ -42,23 +42,11 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
 
         jd_ingresar = new javax.swing.JDialog();
         jTabbedPane4 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        cb_pokegrupos = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        tf_nombrePokeG = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tabla1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         tf_nombrep = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -72,6 +60,17 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         cb_tipo = new javax.swing.JComboBox<>();
         js_vida = new javax.swing.JSpinner();
         js_danop = new javax.swing.JSpinner();
+        jPanel1 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        cb_pokegrupos = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        tf_nombrePokeG = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabla1 = new javax.swing.JTable();
         jd_registrarse = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -91,6 +90,8 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         bg_tipoPok = new javax.swing.ButtonGroup();
         popup_modificar = new javax.swing.JPopupMenu();
         menu_popup = new javax.swing.JPopupMenu();
+        opcion_eliminar = new javax.swing.JMenuItem();
+        opcion_modifcar = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -98,6 +99,151 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         tf_contrasena = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jb_registrarse = new javax.swing.JButton();
+
+        jLabel14.setText("Nombre");
+
+        jLabel15.setText("Dano");
+
+        jLabel16.setText("Pts. Vida");
+
+        jButton4.setText(">");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Agregar a lista");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jButton9.setText("Agregar a Arbol");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        jl_pokemones.setModel(new DefaultListModel());
+        jl_pokemones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_pokemonesMouseClicked(evt);
+            }
+        });
+        jl_pokemones.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jl_pokemonesKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jl_pokemones);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex1");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex2");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex3");
+        treeNode1.add(treeNode2);
+        jt_pokedex.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_pokedex.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_pokedexMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jt_pokedex);
+
+        jLabel19.setText("Velocidad");
+
+        cb_velocidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Baja", "Media", "Alta" }));
+
+        jLabel17.setText("Tipo");
+
+        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Electricidad", "Venenoso", "Psiquico", "Fantasma" }));
+        cb_tipo.setSelectedIndex(-1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(js_danop, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(js_vida, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(71, 71, 71)
+                                .addComponent(jLabel15))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel16))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cb_velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(js_vida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(js_danop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jButton4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+
+        jTabbedPane4.addTab("Pokemones", jPanel2);
 
         jButton5.setText("Salir de PokeGrupo");
 
@@ -169,8 +315,8 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,156 +344,6 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         );
 
         jTabbedPane4.addTab("PokeGrupo", jPanel1);
-
-        jLabel14.setText("Nombre");
-
-        jLabel15.setText("Dano");
-
-        jLabel16.setText("Pts. Vida");
-
-        jButton8.setText("Editar");
-
-        jButton4.setText(">");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Agregar a lista");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-
-        jButton9.setText("Agregar a Arbol");
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
-            }
-        });
-
-        jl_pokemones.setModel(new DefaultListModel());
-        jl_pokemones.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jl_pokemonesMouseClicked(evt);
-            }
-        });
-        jl_pokemones.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jl_pokemonesKeyPressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jl_pokemones);
-
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex1");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex2");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex3");
-        treeNode1.add(treeNode2);
-        jt_pokedex.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jt_pokedex.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jt_pokedexMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jt_pokedex);
-
-        jLabel19.setText("Velocidad");
-
-        cb_velocidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Baja", "Media", "Alta" }));
-
-        jLabel17.setText("Tipo");
-
-        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Electricidad", "Venenoso", "Psiquico", "Fantasma" }));
-        cb_tipo.setSelectedIndex(-1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(js_danop, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(js_vida, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(71, 71, 71)
-                                .addComponent(jLabel15))
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel16))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cb_velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_nombrep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(js_vida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(js_danop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton8)
-                .addGap(43, 43, 43)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jButton4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab("Pokemones", jPanel2);
 
         javax.swing.GroupLayout jd_ingresarLayout = new javax.swing.GroupLayout(jd_ingresar.getContentPane());
         jd_ingresar.getContentPane().setLayout(jd_ingresarLayout);
@@ -461,6 +457,20 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        opcion_eliminar.setText("jMenuItem1");
+        opcion_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcion_eliminarActionPerformed(evt);
+            }
+        });
+
+        opcion_modifcar.setText("jMenuItem2");
+        opcion_modifcar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcion_modifcarActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -492,30 +502,28 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
                 .addGap(116, 116, 116)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jb_registrarse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)))
+                        .addGap(17, 17, 17))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(143, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(232, 232, 232))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -545,10 +553,6 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El usuario no existe.");
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
@@ -742,15 +746,15 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private void jl_pokemonesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jl_pokemonesKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == evt.VK_DELETE) {
-            if (jl_pokemones.getSelectedIndex() >= 0) {
+           if (jl_pokemones.getSelectedIndex() >= 0) {
                 DefaultListModel modelo
-                = (DefaultListModel) jl_pokemones.getModel();
+                        = (DefaultListModel) jl_pokemones.getModel();
                 modelo.remove(jl_pokemones.getSelectedIndex());
                 jl_pokemones.setModel(modelo);
                 JOptionPane.showMessageDialog(this,
-                    "Eliminado exitosamente");
-
-            }
+                        "Eliminado exitosamente");
+                
+            } 
         }
     }//GEN-LAST:event_jl_pokemonesKeyPressed
 
@@ -818,6 +822,96 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         tf_nombrep.setText("");
     }//GEN-LAST:event_jButton9MouseClicked
 
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        
+        if (jl_pokemones.getSelectedIndex() >= 0) {
+            DefaultTreeModel modeloARBOL
+                    = (DefaultTreeModel) jt_pokedex.getModel();
+            DefaultMutableTreeNode raiz
+                    = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            //obtener la persona a guardar
+            DefaultListModel modeloLISTA
+                    = (DefaultListModel) jl_pokemones.getModel();
+            
+            String nombre, velocidad, tipo;
+            int dano,vida;
+            nombre 
+                    = ((Pokemon) modeloLISTA.get(
+                    jl_pokemones.getSelectedIndex())).
+                    getNombre();
+            velocidad = ((Pokemon) modeloLISTA.get(
+                    jl_pokemones.getSelectedIndex())).
+                    getVelocidad();
+            tipo = ((Pokemon) modeloLISTA.get(
+                    jl_pokemones.getSelectedIndex())).
+                    getTipo();
+            dano = ((Pokemon) modeloLISTA.get(
+                    jl_pokemones.getSelectedIndex())).
+                    getDano();
+            vida = ((Pokemon) modeloLISTA.get(
+                    jl_pokemones.getSelectedIndex())).
+                    getVida();
+            
+            int centinela = -1;           
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().
+                        equals(velocidad)) {
+                    DefaultMutableTreeNode p
+                            = new DefaultMutableTreeNode(
+                                    new Pokemon(nombre, velocidad, tipo, dano, vida)
+                            );
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                } //fin if
+            } //fin for  
+            
+            if (centinela == -1) {
+                DefaultMutableTreeNode n
+                        = new DefaultMutableTreeNode(velocidad);
+                DefaultMutableTreeNode p
+                        = new DefaultMutableTreeNode(
+                                new Pokemon(nombre, velocidad, tipo, dano, vida)
+                        );
+                n.add(p);
+                raiz.add(n);
+            }  // fin if          
+            modeloARBOL.reload();
+            
+                        
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "No hay pokemon seleccionado");
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void opcion_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion_eliminarActionPerformed
+        // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Seguro de Eliminar?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {
+            DefaultTreeModel m
+                    = (DefaultTreeModel) jt_pokedex.getModel();
+            m.removeNodeFromParent(
+                    nodo_seleccionado);
+            m.reload();
+        }
+    }//GEN-LAST:event_opcion_eliminarActionPerformed
+
+    private void opcion_modifcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion_modifcarActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel m
+                = (DefaultTreeModel) jt_pokedex.getModel();
+        pokemon_seleccionado.setNombre(
+                JOptionPane.showInputDialog("Nuevo nombre"));
+        m.reload();
+    }//GEN-LAST:event_opcion_modifcarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -881,7 +975,6 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -916,6 +1009,8 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
     private javax.swing.JSpinner js_vida;
     private javax.swing.JTree jt_pokedex;
     private javax.swing.JPopupMenu menu_popup;
+    private javax.swing.JMenuItem opcion_eliminar;
+    private javax.swing.JMenuItem opcion_modifcar;
     private javax.swing.JPasswordField pf_contrasena;
     private javax.swing.JPopupMenu popup_modificar;
     private javax.swing.JTable tabla1;
