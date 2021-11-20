@@ -242,6 +242,12 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jl_pokemones);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex1");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex2");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pokedex3");
+        treeNode1.add(treeNode2);
         jt_pokedex.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jt_pokedex.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -686,6 +692,26 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         DefaultListModel modelo
                 = (DefaultListModel) jl_pokemones.getModel();
 
+        modelo.addElement (new Pokemon(tf_nombrep.getText(),
+                             (String) cb_velocidad.getSelectedItem(),
+                             (String) cb_tipo.getSelectedItem(),
+                             (Integer)js_danop.getValue(),
+                                (Integer) js_vida.getValue()
+                        )
+        );
+        jl_pokemones.setModel(modelo);
+        tf_nombre.setText("");
+        cb_velocidad.setSelectedItem(o);
+        cb_tipo.setSelectedItem(o);
+        js_danop.setValue(o);
+        js_vida.setValue(o);
+        //sp_edad.setValue(20);
+        //cb_nacionalidad.setSelectedIndex(0);
+        
+        /*
+        DefaultListModel modelo
+                = (DefaultListModel) jl_pokemones.getModel();
+
         modelo.addElement(new Pokemon(tf_nombrep.getText(),
                 (String) cb_velocidad.getSelectedItem(),
                 (String) js_danop.getValue(),
@@ -699,7 +725,7 @@ public class Lab6P2_MarioCalix_22041098 extends javax.swing.JFrame {
         js_danop.setValue(50);
         js_danop.setValue(100);
         cb_tipo.setSelectedIndex(1);
-        cb_velocidad.setSelectedIndex(1);
+        cb_velocidad.setSelectedIndex(1);*/
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jl_pokemonesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_pokemonesMouseClicked

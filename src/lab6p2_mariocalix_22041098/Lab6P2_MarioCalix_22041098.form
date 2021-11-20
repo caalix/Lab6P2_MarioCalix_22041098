@@ -364,7 +364,7 @@
                     <Component class="javax.swing.JTree" name="jt_pokedex">
                       <Properties>
                         <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
-                          <TreeModel code=""/>
+                          <TreeModel code="Pokedex1&#xa;Pokedex2&#xa;Pokedex3"/>
                         </Property>
                       </Properties>
                       <Events>
